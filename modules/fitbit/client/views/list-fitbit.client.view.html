@@ -1,0 +1,18 @@
+<section>
+  <div class="page-header">
+    <h1>FitBits</h1>
+  </div>
+  <div class="list-group">
+    <a ng-repeat="fitbit in vm.fitbits" ui-sref="fitbits.view({ fitbitId: fitbit._id })" class="list-group-item">
+      <small class="list-group-item-text">
+        Posted on
+        <span ng-bind="fitbit.created | date:'mediumDate'"></span>
+        by
+        <span ng-if="fitbit.user" ng-bind="fitbit.user.displayName"></span>
+        <span ng-if="!fitbit.user">Deleted User</span>
+      </small>
+      <h4 class="list-group-item-heading" ng-bind="fitbit.title"></h4>
+      <p class="list-group-item-text" ng-bind="fitbit.content"></p>
+    </a>
+  </div>
+</section>
